@@ -1,0 +1,154 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="site.master.cs" Inherits="site" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link rel="shortcut icon" type="image/ico" href="favicon.ico" />
+    <link href="assets/styles/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/styles/site.css" rel="stylesheet" type="text/css" />
+    <script src="assets/js/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <!--menu-->
+    <script src="assets/js/superfish.js" type="text/javascript"></script>
+    <script src="assets/js/supersubs.js" type="text/javascript"></script>
+    <script src="assets/js/hoverIntent.js" type="text/javascript"></script>
+    <link href="assets/styles/superfish.css" rel="stylesheet" type="text/css" />
+    <!--banner-->
+    <script src="assets/js/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+    <script src="assets/js/imagesloaded.pkgd.min.js" type="text/javascript"></script>
+    <link href="assets/styles/nivo-slider.css" rel="stylesheet" type="text/css" />
+    <!--font-->
+    <script src="assets/js/cufon-yui.js" type="text/javascript"></script>
+    <script src="assets/js/UVN_Bach_Tuyet_700.font.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        //Cufon.replace('.demo-font, a');
+        Cufon.replace('.wrapper-main .title-product .title, .contact-left .address-contact h2', { fontFamily: 'UVN Bach Tuyet' });
+    </script>
+    <script src="assets/js/google-maps.js" type="text/javascript"></script>
+    <script src="assets/js/jquery.elevatezoom.js" type="text/javascript"></script>
+    <link href="assets/styles/jcarousel.basic.css" rel="stylesheet" type="text/css" />
+    <script src="assets/js/jquery.jcarousel.min.js" type="text/javascript"></script>
+    <script src="assets/js/jcarousel.basic.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("ul.sf-menu").supersubs({
+                minWidth: 20,
+                maxWidth: 80,
+                extraWidth: 1
+            }).superfish({
+                delay: 50
+            });
+
+            if ($('#slider').size() == 1) {
+                var $banner = $('#slider').imagesLoaded(function () {
+                    $banner.nivoSlider({
+                        directionNav: true
+                    });
+                });
+            }
+
+            $('.product:odd').addClass(function () {
+                $(this).addClass("bg-product");
+                $('.product:odd .wrapper-main > .title-product span').addClass("bg-title-product");
+            });
+
+            $("#zoom_03").elevateZoom({
+                gallery: 'gallery',
+                cursor: 'move',
+                galleryActiveClass: 'active',
+                imageCrossfade: true,
+                loadingIcon: 'http://www.elevateweb.co.uk/spinner.gif'
+            });
+            $("#zoom_03").bind("click", function (e) {
+                var ez = $('#zoom_03').data('elevateZoom');
+                $.fancybox(ez.getGalleryList()); return false;
+            });
+            $("#gallery").find('a').each(function () {
+                $('#gallery > a:first').removeClass("elevatezoom-gallery").addClass("elevatezoom-gallery active");
+            });
+        });
+    </script>
+    <!--[if lt IE 9]>
+        <style type="text/css">
+           .corner { position: relative; behavior: url(PIE.htc); }
+        </style>
+    <![endif]-->
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <!--active menu-->
+    <script type="text/javascript">
+        function changeActiveMenu(page) {
+            $('#menu li').removeClass("active");
+            $('#menu li a[href*="' + page + '"]').parent("li").addClass("active");
+        }
+        function changeSubActiveMenu(page) {
+            $('#menu li li').removeClass("active");
+            $('#menu li li a[href$="' + page + '"]').parents("li").addClass("active");
+            var value1 = $('a.a-link-gt').attr('href');
+            $('#menu li li a[href$="' + value1 + '"]').parents("li").addClass("active");
+            $('#listProduct li li').removeClass("active");
+            $('#listProduct li li a[href$="' + page + '"]').parents("li").addClass("active");
+            var value2 = $('a.a-link-sp').attr('href');
+            $('#listProduct li li a[href$="' + value1 + '"]').parents("li").addClass("active");
+            var value3 = $('a.a-link-spct').attr('href');
+            $('#listProduct li li a[href$="' + value2 + '"]').parents("li").addClass("active");
+        }
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+    </asp:ToolkitScriptManager>
+    <div id="wrapper">
+        <div id="header">
+            <div class="wrapper-main">
+                <div class="header-left">
+                    <div class="logo">
+                        <a href="~/" runat="server">
+                            <img src="assets/images/logo.png" alt="logo" /></a></div>
+                    <div class="nameco">
+                        <img class="img-responsive" src="assets/images/name-co.png" alt="" /></div>
+                </div>
+                <div class="header-right">
+                    <div class="hotline">
+                        <strong>01229 228 228</strong></div>
+                    <div class="callus">
+                        <div class="phone">
+                            <p class="number">
+                                <strong>0933</strong> 242424 <span>(Chị Thảo)</span>
+                            </p>
+                            <p class="number">
+                                <strong>0973</strong> 242424 <strong>&nbsp-</strong> <span>(Anh Nhân)</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="main-content">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div id="footer">
+            <div class="footer-wrapper">
+                <div class="wrapper-main">
+                    <p>
+                        Địa chỉ: Cơ sở kinh doanh Hòan Mỹ, 180/60 Phạm Phú Thứ, Phường 4, Quận 6, Tp.HCM</p>
+                    <p>
+                        Email: <a mailto="minhnhandn@yahoo.com">minhnhandn@yahoo.com</a></p>
+                    <p>
+                        SĐT nhà : 08 38543138 / 0822 126 345</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <div class="wrapper-main">
+                    <p>
+                        &copy; Copyright 2015 - Hoàn Mỹ. Allright reserved | <a href="http://tranlegroup.com">
+                            Website by</a> <a href="http://tranlegroup.com">Tran Le</a></p>
+                </div>
+            </div>
+        </div>
+        <div id="runScript" runat="server">
+        </div>
+    </div>
+    </form>
+</body>
+</html>

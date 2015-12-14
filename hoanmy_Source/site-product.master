@@ -1,0 +1,60 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/site-sub.master" AutoEventWireup="true"
+    CodeFile="site-product.master.cs" Inherits="site_product" %>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="head" runat="Server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <div class="wrapper-main">
+        <div id="colAside">
+            <h2 class="title-listpro">
+                Danh mục sản phẩm</h2>
+            <asp:ListView ID="lstProductCategory1" runat="server" DataSourceID="odsProductCategory1"
+                EnableModelValidation="True">
+                <ItemTemplate>
+                    <li><a href='<%# progressTitle(Eval("ProductCategoryName")) + "-pci-" + Eval("ProductCategoryID") + ".aspx" %>'><%# Eval("ProductCategoryName") %><span class="icona-right"></span></a>
+                        <asp:HiddenField ID="hdnProductCategory" runat="server" Value='<%# Eval("ProductCategoryID") %>' />
+                        <asp:ListView ID="lstProductCategory2" runat="server" DataSourceID="odsProductCategory2"
+                            EnableModelValidation="True">
+                            <ItemTemplate>
+                                <li><a href='<%# progressTitle(Eval("ProductCategoryName")) + "-pci-" + Eval("ProductCategoryID") + ".aspx" %>'><%# Eval("ProductCategoryName") %></a></li>
+                            </ItemTemplate>
+                            <LayoutTemplate>
+                                <ul>
+                                    <li runat="server" id="itemPlaceholder"></li>
+                                </ul>
+                            </LayoutTemplate>
+                        </asp:ListView>
+                        <asp:ObjectDataSource ID="odsProductCategory2" runat="server" SelectMethod="ProductCategorySelectAll"
+                            TypeName="TLLib.ProductCategory">
+                            <SelectParameters>
+                                <asp:ControlParameter ControlID="hdnProductCategory" Name="parentID" PropertyName="Value"
+                                    Type="Int32" />
+                                <asp:Parameter DefaultValue="1" Name="increaseLevelCount" Type="Int32" />
+                                <asp:Parameter Name="IsShowOnMenu" Type="String" />
+                                <asp:Parameter Name="IsShowOnHomePage" Type="String" />
+                            </SelectParameters>
+                        </asp:ObjectDataSource>
+                    </li>
+                </ItemTemplate>
+                <LayoutTemplate>
+                    <ul id="listProduct" class="menu-product">
+                        <li runat="server" id="itemPlaceholder"></li>
+                    </ul>
+                </LayoutTemplate>
+            </asp:ListView>
+            <asp:ObjectDataSource ID="odsProductCategory1" runat="server" SelectMethod="ProductCategorySelectAll"
+                TypeName="TLLib.ProductCategory">
+                <SelectParameters>
+                    <asp:Parameter Name="parentID" Type="Int32" />
+                    <asp:Parameter DefaultValue="1" Name="increaseLevelCount" Type="Int32" />
+                    <asp:Parameter Name="IsShowOnMenu" Type="String" />
+                    <asp:Parameter Name="IsShowOnHomePage" Type="String" />
+                </SelectParameters>
+            </asp:ObjectDataSource>
+        </div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+</asp:Content>

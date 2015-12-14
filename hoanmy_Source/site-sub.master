@@ -1,0 +1,53 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/site.master" AutoEventWireup="true" CodeFile="site-sub.master.cs"
+    Inherits="site_sub" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <div class="wrapper-main">
+        <ul id="menu" class="sf-menu menu-2">
+            <li class="active"><a id="A1" href="~/" runat="server">Trang chủ</a></li>
+            <li><a href="javascript:void(0);">Giới thiệu<span class="icon-down"></span></a>
+                <asp:ListView ID="lstAbout" runat="server" DataSourceID="odsAbout" EnableModelValidation="True">
+                    <ItemTemplate>
+                        <li><a href='<%# progressTitle(Eval("ArticleTitle")) + "-gt-" + Eval("ArticleID") + ".aspx" %>'>
+                            <%# Eval("ArticleTitle")%></a></li>
+                    </ItemTemplate>
+                    <LayoutTemplate>
+                        <ul>
+                            <span runat="server" id="itemPlaceholder" />
+                        </ul>
+                    </LayoutTemplate>
+                </asp:ListView>
+                <asp:ObjectDataSource ID="odsAbout" runat="server" SelectMethod="ArticleSelectAll"
+                    TypeName="TLLib.Article">
+                    <SelectParameters>
+                        <asp:Parameter Name="StartRowIndex" Type="String" />
+                        <asp:Parameter Name="EndRowIndex" Type="String" />
+                        <asp:Parameter Name="Keyword" Type="String" />
+                        <asp:Parameter Name="ArticleTitle" Type="String" />
+                        <asp:Parameter Name="Description" Type="String" />
+                        <asp:Parameter DefaultValue="1" Name="ArticleCategoryID" Type="String" />
+                        <asp:Parameter Name="Tag" Type="String" />
+                        <asp:Parameter Name="IsShowOnHomePage" Type="String" />
+                        <asp:Parameter Name="IsHot" Type="String" />
+                        <asp:Parameter Name="IsNew" Type="String" />
+                        <asp:Parameter Name="FromDate" Type="String" />
+                        <asp:Parameter Name="ToDate" Type="String" />
+                        <asp:Parameter DefaultValue="True" Name="IsAvailable" Type="String" />
+                        <asp:Parameter Name="Priority" Type="String" />
+                        <asp:Parameter DefaultValue="True" Name="SortByPriority" Type="String" />
+                    </SelectParameters>
+                </asp:ObjectDataSource>
+            </li>
+            <li><a href="san-pham.aspx">Sản phẩm</a></li>
+            <li><a href="lien-he.aspx">Liên hệ</a></li>
+        </ul>
+        <div class="clr">
+        </div>
+    </div>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
