@@ -38,27 +38,30 @@ body {
     line-height: 24px;
 }
 #wrapper {
-    overflow: hidden;
+    /*overflow: hidden;*/
     position: relative;
-    min-height: 100%;
+    /*min-height: 100%;*/
     width: 100%;
     z-index: 1;
 }
 /*======================================================HEADER===========================================*/
 #wrapper #header {
     position: relative;
-    background-color: #fff;
+    background-color: #a3cdf7;
     z-index: 10;
     overflow: hidden;
 }
 .wrapper-main
 {
     padding: 0 15px;
-    width: 1200px;
+    /*width: 1200px;*/
     margin-right: auto;
     margin-left: auto;
-    padding-left: 0;
-    padding-right: 0;
+    /*padding-left: 0;
+    padding-right: 0;*/
+    padding-left: 51px;
+    padding-right: 51px;
+    overflow: hidden;
 }
 .logo {
     width: 79px;  
@@ -155,9 +158,14 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    background: url(../images/bg-hide.png) repeat left top;
+    /*background: url(../images/bg-hide.png) repeat left top;*/
+    background-color: #4057a9;
     width: 100%;
     z-index: 99;
+}
+.wrap-menu-2 {
+    background-color: #4057a9;
+    width: 100%;
 }
 #menu {
     /*float: left;*/
@@ -187,7 +195,8 @@ body {
     padding: 0 35px;
     font-size: 15px;
     line-height: 76px;
-    color: #5a5a5a;
+    /*color: #5a5a5a;*/
+    color: #fff;
     text-transform: uppercase;
 }
 #menu > li > a > .icon-down
@@ -325,6 +334,7 @@ body {
 /*===============*/
 .wrapper-menu.wrap-site {
     margin-top: 76px;
+    background-color: #fff;
 }
 #menu.menu-2 {
     float: right;
@@ -826,7 +836,7 @@ body {
     position: relative;
     top: 0;
     left: 0;
-    background-color: #343436;
+    background-color: #4057a9;
     
 }
 #footer, #footer a {
@@ -845,11 +855,12 @@ body {
     text-transform: uppercase;
 }
 .footer-wrapper {
-    background-color: #343436;
+    background-color: #4057a9;
     padding: 30px 56px;
 }
 .copyright {
-    border-top: 1px solid #5d5d5e;
+    /*border-top: 1px solid #5d5d5e;*/
+    border-top: 1px solid #fff;
     padding: 3px 56px 0;
     line-height: 48px;
 }

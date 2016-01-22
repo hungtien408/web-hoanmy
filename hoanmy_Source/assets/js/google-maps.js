@@ -6,9 +6,9 @@ var rendererOptions = {
 var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
 //Thay dia chi web
-var endAddress = "10.743054,106.644911";
+var endAddress = "10.745383, 106.645022";
 //Thay toa do
-var lat = 10.743054, long = 106.644911; 
+var lat = 10.745383, long = 106.645022; 
 window.onload = function () {
     //init direction
     directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);
@@ -44,7 +44,7 @@ window.onload = function () {
             '<div class="wrap-mapbox">' +
                 '<p class="contact-1">Cơ sở kinh doanh Hòan Mỹ, 180/60 Phạm Phú Thứ, Phường 4, Quận 6, Tp.HCM</p>' +
                 '<p class="contact-2">Tel: 08 38543138 / 0822 126 345</p>' +
-                '<p class="contact-3"><a class="link-mail" href="mailto: minhnhandn@yahoo.com"> minhnhandn@yahoo.com</a></p>' +
+                '<p class="contact-3"><a class="link-mail" href="mailto: cohoanmy@gmail.com"> cohoanmy@gmail.com</a></p>' +
             '</div>' +
         '</div>';
 

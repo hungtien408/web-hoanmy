@@ -30,8 +30,8 @@
                                 <img src="assets/images/icon-c-2.png" alt="" /></span>Tel: 08 38543138 / 0822 126 345</p>
                         <p>
                             <span class="icon-p">
-                                <img src="assets/images/icon-c-3.png" alt="" /></span>Email: <a href="mailTo:minhnhandn@yahoo.com">
-                                    minhnhandn@yahoo.com</a></p>
+                                <img src="assets/images/icon-c-3.png" alt="" /></span>Email: <a href="mailTo:cohoanmy@gmail.com">
+                                    cohoanmy@gmail.com</a></p>
                     </div>
                 </div>
             </div>
