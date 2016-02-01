@@ -76,7 +76,8 @@ ul.sf-menu li li li.sfHover ul {
 	background:	    none !important;
 }
 .sf-menu li li {
-	background: url(../images/bg-hide.png) repeat left top;
+	/*background: url(../images/bg-hide.png) repeat left top;*/
+    background-color: #f8f8f8;
 }
 .sf-menu li li li {
 	
